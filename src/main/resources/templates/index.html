@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <script type="text/javascript" src="webjars/jquery/3.2.1/dist/jquery.js"></script>
+    <script type="text/javascript">
+        var query
+        function get() {
+           query=$("#s").val();
+          // alert(query);
+        }
+
+        $(function(){
+
+            $("#add").click(function () {
+                window.location.href="/add.html";
+            })
+            $("#search").click(function () {
+                window.location.href="/selectbyname?query="+query;
+            })
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <input type="button" id="add" name="add" value="添加">
+
+    <input type="text" id="s" name="s" onkeyup="get()" placeholder="请输入姓名来搜索">
+    <input type="button" id="search" name="search" value="搜索">
+
+    <h1><center>垂死病中惊坐起,谈笑风生又一年</center></h1>
+    <center>
+    <table border="1">
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>操作</td>
+        </tr>
+    <tr th:each="l : ${list}">
+        <td th:text="${l.name}">姓名</td>
+        <td th:text="${l.xh}">学号</td>
+        <td><a href="#" th:href="@{/delstu(xh=${l.xh})}" >删除</a> | <a href="#" th:href="@{/update(xh=${l.xh})}">修改</a></td>
+    </tr>
+    </table>
+    </center>
+</body>
+</html>

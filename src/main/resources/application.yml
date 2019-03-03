@@ -1,0 +1,23 @@
+
+
+
+spring:
+  datasource:
+    password: 123
+    url: jdbc:mysql://localhost:3306/wuwei
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+  data:
+    solr:
+      repositories:
+        enabled: true
+      host: http://localhost:8088/solr/new_core/
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+server:
+  port: 8888
+
+
