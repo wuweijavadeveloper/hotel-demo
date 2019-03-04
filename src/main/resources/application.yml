@@ -18,6 +18,6 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 
 server:
-  port: 8888
+  port: 9001
 
 
